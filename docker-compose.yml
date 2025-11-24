@@ -1,8 +1,8 @@
-version: '3.8'
 services:
   php:
-    image: php:8.2-cli
+    image: php:8.2-apache
+    container_name: php_lab3
+    ports:
+      - "8080:80"       # доступ к серверу через http://localhost:8080
     volumes:
-      - ./project:/var/www/html
-    working_dir: /var/www/html
-    command: tail -f /dev/null
+      - ./:/var/www/html  # монтируем текущую папку в контейнер
